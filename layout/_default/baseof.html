@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'includes/head.html' %}
+        <link rel="stylesheet" href="../../static/style.css">
+        <!-- {% block head %}{% endblock %} -->
+        <!-- ( scripts ) -->
+        <!-- {% include 'includes/scripts.html' %} -->
+    </head>
+    <body>
+        <div id="root">
+            {% include 'includes/header.html' %}
+
+            <div class="main">
+                {% block conetnt %}{% endblock %}
+            </div>
+
+            {% include 'includes/footer.html' %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+{% extends '_default/baseof.html' %}
+
+{% block conetnt %}
+    <h1>Welcome to my static site genarator</h1>
+    <h2>Blog posts.</h2>
+    <ul class="posts">
+        {% for post in data %}
+            {% if post.type == 'post' %}
+                <li>
+                    <h2><a href="dist/posts/{{post.slug}}.html">{{post.title}}</a></h2>
+                    <p>{{post.content}}</p>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
