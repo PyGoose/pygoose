@@ -5,7 +5,7 @@ import markdown
 from slugify import slugify
 from jinja2 import Environment, FileSystemLoader
 
-from websnake.settings import CONTENT_DIR, LAYOUT_DIR
+from pygoose.settings import CONTENT_DIR, LAYOUT_DIR
 
 
 # Grab all of the data files from the content dir

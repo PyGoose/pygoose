@@ -1,4 +1,4 @@
-from websnake import main
+from pygoose import main
 
 
 def runserver():
