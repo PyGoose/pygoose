@@ -33,4 +33,10 @@
 
 ### Posts
 
+Create posts in markdown format on `content/posts` folder
 
+### Pages
+
+Create posts in markdown format on `content/pages` folder
+
+### Pygoose is using default template in `layout` folder
