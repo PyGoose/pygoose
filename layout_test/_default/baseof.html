@@ -2,7 +2,8 @@
 <html lang="en">
     <head>
         {% include 'includes/head.html' %}
-        <link rel="stylesheet" href="../../static/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <!-- <link rel="stylesheet" href="static/style.css"> -->
         <!-- {% block head %}{% endblock %} -->
         <!-- ( scripts ) -->
         <!-- {% include 'includes/scripts.html' %} -->
@@ -12,7 +13,7 @@
             {% include 'includes/header.html' %}
 
             <div class="main">
-                {% block conetnt %}{% endblock %}
+                {% block content %}{% endblock %}
             </div>
 
             {% include 'includes/footer.html' %}

@@ -1,16 +1,28 @@
-{% extends '_default/baseof.html' %}
-
-{% block conetnt %}
-    <h1>Welcome to my static site genarator</h1>
-    <h2>Blog posts.</h2>
-    <ul class="posts">
-        {% for post in data %}
-            {% if post.type == 'post' %}
-                <li>
-                    <h2><a href="dist/posts/{{post.slug}}.html">{{post.title}}</a></h2>
-                    <p>{{post.content}}</p>
-                </li>
+{% extends '_default/index.html' %}
+{% block content %}
+<div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+          {% for post in data %}
+             {% if post.type == 'post' %}
+              
+                    <div class="post-preview">
+                        <a href="/posts/{{post.slug}}.html">
+                            <h2 class="post-title">{{post.title}}</h2>
+                            <h3 class="post-subtitle">{{post.content[:100]}}</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">{{post.author}}</a>
+                            on {{post.date}}
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
             {% endif %}
         {% endfor %}
-    </ul>
 {% endblock %}
+                </div>
+            </div>
+        </div>
