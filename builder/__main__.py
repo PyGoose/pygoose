@@ -37,6 +37,7 @@ def main():
             metadata['slug'] = slugify(metadata['title'])
             metadata['type'] = 'post'
             metadata['content'] = markdown.markdown(file_data.content)
+            metadata['description'] = metadata['description']
             post_data.append({"metadata": metadata})
             
     page_data = []
@@ -58,13 +59,18 @@ def main():
     all_metadata = [data["metadata"] for data in all_data]
     all_metadata.sort(key=lambda x: x["date"], reverse=True)
     # Default values for index page
-    page_name = Config.SITE_NAME
-    page_description = Config.SITE_DESCRIPTION
+    site_name = Config.SITE_NAME
+    site_description = Config.SITE_DESCRIPTION
+    site_keywords = Config.SITE_KEYWORDS
+    site_author = Config.SITE_AUTHOR
     page_details = {
-        'page_name':page_name,
-        'page_description':page_description
+        'site_name':site_name,
+        'site_description':site_description,
+        'site_keywords':site_keywords,
+        'site_author':site_author,
+        'type':'index'
     }
-    rendered_template = template.render(data=all_metadata,page_details =page_details)
+    rendered_template = template.render(data=all_metadata,page_details =page_details,page_list=page_data)
     
     
     try:
@@ -76,7 +82,7 @@ def main():
     
     try:
         logging.info("Rendering Files")   
-        render_template(all_data,template,env)
+        render_template(all_data,template,env,page_data)
         logging.info("Copying Static Folder")   
         copy_static_files(Config.STATIC_SRC_PATH,Config.DIST_SRC_PATH)
     except Exception as Err:

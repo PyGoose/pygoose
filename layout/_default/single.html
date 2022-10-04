@@ -1,5 +1,4 @@
 {% extends '_default/index.html' %}
-
 {% block content %}
         <!-- Page Header-->
             <div class="container position-relative px-4 px-lg-5">
@@ -7,12 +6,13 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
                             <h1>{{data.metadata.title}}</h1>
+                    {% if data.metadata.type == "post" %}
                             <span class="meta">
                                 Posted by
                                 <a href="#!">{{data.metadata.author}}</a>
                                 on {{data.metadata.date}}
                             </span>
-                        </div>
+                        {% endif %}</div>
                     </div>
                 </div>
             </div>
